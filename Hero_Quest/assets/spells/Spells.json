@@ -1,0 +1,43 @@
+{"Spells":[{
+"Name":"Fireball",
+"Damage":2,
+"Range":1,
+"Effects":1,
+},
+{
+"Name":"Lightning",
+"Damage":2,
+"Range":1,
+"Effects":1,
+},
+{
+"Name":"Firewall",
+"Damage":2,
+"Range":1,
+"Effects":1,
+},
+{
+"Name":"Stone armor",
+"Damage":2,
+"Range":"Self",
+"Effects":"Def +2",
+},
+{
+"Name":"Enchanted fire sword",
+"Damage":2,
+"Range":1,
+"Effects":1,
+},
+{
+"Name":"Explosive fireball",
+"Damage":2,
+"Range":1,
+"Effects":1,
+},
+{
+"Name":"Element cone",
+"Damage":2,
+"Range":1,
+"Effects":1,
+}]
+}

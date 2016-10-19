@@ -1,0 +1,10 @@
+{
+"entityName": "Zad",
+"entityRace": 1,
+"entityLevel": 1,
+"entityTotalXp": 100,
+"entityAttack": 3,
+"entityDefense": 3,
+"entityCurrentHealth": 10,
+"entityTotalHealth": 10
+}

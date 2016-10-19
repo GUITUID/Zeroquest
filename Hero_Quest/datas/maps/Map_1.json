@@ -1,0 +1,36 @@
+{
+	"map" : [{
+			"name" : "Name",
+			"value" : "Map_1"
+		}, {
+			"name" : "Description",
+			"value" : "A simple 4 rooms map for beginners"
+		}, {
+			"name" : "Number of rooms",
+			"value" : "4"
+		}, {
+			"name" : "Theme",
+			"value" : "Goblins"
+		}, {
+			"name" : "level",
+			"value" : "1"
+		},
+"rooms" : [{
+		{
+			"name" : "room_number",
+			"value" : "1"
+		}, {
+			"name" : "x_size",
+			"value" : "10"
+		}, {
+			"name" : "y_size",
+			"value" : "10"
+		}, {
+			"name" : "x_pos",
+			"value" : "100"
+		}, {
+			"name" : "y_pos",
+			"value" : "10"
+		}
+	]
+}

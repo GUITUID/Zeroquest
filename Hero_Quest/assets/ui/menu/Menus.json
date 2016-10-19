@@ -1,0 +1,50 @@
+{"Menu":"Title Screen",
+"Main Menu":[{
+"Name":"New Game",
+},
+{
+"Name":"Load Game",
+},
+{
+"Name":"Multiplayer",
+},
+{
+"Name":"Options",
+},
+{
+"Name":"Quit",
+}
+}],
+"Load Game":[{
+"Name":"New Game",
+},
+{
+"Name":"Load Game",
+},
+{
+"Name":"Multiplayer",
+},
+{
+"Name":"Options",
+},
+{
+"Name":"Quit",
+}
+}],
+"Options":[{
+"Name":"New Game",
+},
+{
+"Name":"Load Game",
+},
+{
+"Name":"Multiplayer",
+},
+{
+"Name":"Options",
+},
+{
+"Name":"Quit",
+}
+}],
+}
