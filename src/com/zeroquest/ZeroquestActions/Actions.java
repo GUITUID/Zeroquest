@@ -2,25 +2,25 @@ package com.zeroquest.ZeroquestActions;
 
 import static java.lang.System.out;
 
-import com.zeroquest.ZeroquestEntities.Monster;
-import com.zeroquest.ZeroquestEntities.Player;
-import com.zeroquest.ZeroquestState.Battle;
+import com.zeroquest.ZeroquestEntities.EntityMonster;
+import com.zeroquest.ZeroquestEntities.EntityPlayer;
 import com.zeroquest.ZeroquestState.PlayerState;
-
+//TODO better action system
 public class Actions {
 
 	//Actions a player can do
     static String [] pactions =
 	{
-		"\nWhat do you want to do?"
-		+"0) Find a quest"	
-		+"1) Fight"
-		+"2) Flee"
-		+"3) Take a look"
-		+"4) Eat"
-		+"5) Drink"
-		+ "6) Get drunk"
-		+ "7) Sleep"    };
+		"\nWhat's your plan?"
+		+"1) Find a quest"	
+		+"2) Fight"
+		+"3) Flee"
+		+"4) Take a look"
+		+"5) Eat"
+		+"6) Drink"
+		+"7) Get drunk"
+		+"8) Sleep"    
+	};
     
   //Player actions method
     static int nActions()
@@ -38,7 +38,7 @@ public class Actions {
     }
     
   //environment actions method depending on the player choice
-    static void eActions(int nAction, Player p, Monster m)
+    static void eActions(int nAction, EntityPlayer p, EntityMonster m)
     {	
     	switch (nAction)
     	{

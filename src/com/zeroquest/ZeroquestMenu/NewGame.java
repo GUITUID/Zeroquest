@@ -8,7 +8,9 @@ import java.util.Scanner;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter.OutputType;
-import com.zeroquest.ZeroquestEntities.Player;
+import com.zeroquest.ZeroquestActions.Battle;
+import com.zeroquest.ZeroquestEntities.EntityMonster;
+import com.zeroquest.ZeroquestEntities.EntityPlayer;
 import com.zeroquest.ZeroquestState.Saving;
 
 public class NewGame {
@@ -33,14 +35,14 @@ public class NewGame {
 		out.println("|                            PICK A RACE                                 |");
 		out.println("--------------------------------------------------------------------------");
 		out.println("Please pick a race:\n"
+				+ "\n\t[Info: New races will be implemented later]\n"
 				+ "\n\t1)Human\n"
 				+ "\tJack of all trade, master of none\n"
 				+ "\n\t2)Dwarf\n"
 				+ "\tTreasure finder, heavy drinker\n"
 				+ "\n\t3)Elf\n"
 				+ "\tBoulder..., vegetables eater...\n"
-				+ "\n\t10)Random"
-				+ "[Info: New races will be implemented later]");
+				+ "\n\t10)Random");
 		//New races will be implemented later
 		int raceChoice = scanner.nextInt();
 		//TODO check input from user
@@ -48,7 +50,7 @@ public class NewGame {
 		out.println("|                           PICK A CLASS                                 |");
 		out.println("--------------------------------------------------------------------------");
 		out.println("Please pick a class:\n"
-				+ "\n\t[Info: New classes will be implemented later]"
+				+ "\n\t[Info: New classes will be implemented later]\n"
 				+ "\n\t1)Warrior\n"
 				+ "\tHP:10\tAtk:3\tDef:3\n"
 				+ "\tAn equilibrated class, good for starting\n"
@@ -82,7 +84,7 @@ public class NewGame {
 		int classChoice = scanner.nextInt();
 		//TODO check input from user
 
-		Player player = new Player();
+		EntityPlayer player = new EntityPlayer();
 		player.setEntityName(pseudoChoice);
 		player.setEntityRace(raceChoice-1);
 		player.setEntityClass(classChoice-1);
@@ -95,6 +97,7 @@ public class NewGame {
 		player.setEntityTotalXp(100);
 		int randomGold = new Random().nextInt(10);
 		player.setEntityGold(randomGold);
+		player.setEntityStartingCity(player);
 
 		//Create a new json file for saving character status
 		Json playerDatas = new Json();
@@ -117,9 +120,9 @@ public class NewGame {
 		out.println("Here are your character information:\n"
 				+ "\n\t[Pseudo: " + player.getEntityName()+"]"
 				//+ "\nRace:" + p.getERace()//p.getERaceName(getERace())
-				+ "\n\t[Race: " + player.getEntityRaceName(player)+"]"
+				+ "\n\t[Race: " + player.getEntityRaceName(player.getEntityRace())+"]"
 				//+ "\nClass:" + p.getEClass()//p.getEClassName(getEClass())
-				+ "\n\t[Class: " + player.getEntityClassName(player)+"]"
+				+ "\n\t[Class: " + player.getEntityClassName(player.getEntityClass())+"]"
 				+ "\n\n\tStats:"
 				+ "\n\t[Level: " + player.getEntityLevel()+"]"	
 				+ "\n\t[Xp: " + player.getEntityCurrentXp()+"/" +player.getEntityTotalXp()+"]"
@@ -129,13 +132,22 @@ public class NewGame {
 				+ "\n\t[Gold:" + player.getEntityGold()+"]");
 		
 		//TODO implements the rest of newgame
-		out.println("\nWelcome to Kaldhazan" + player.getEntityName());
-		out.println("What's your plans ?");
-		//you start in a city, what's your plans ?
-		//
-		// find a quest
-		// go to tavern
-		// 
+		//Starting cities already implemented to link with actions system
+		//out.println(player.getEntityStartingCitySpeech(player));
+		//out.println("\nWhat's your plans ?");
+		
+		EntityMonster monster = new EntityMonster();
+		
+				//Player p = new Player();
+				//p.setEName("Zadwarf");
+				//p.setECurrentHp(10);
+				//p.setETotalHp(10);
+				//p.setEAtk(3);
+				//p.setEDef(3);
+
+		//pchoice(player,m);
+
+		Battle.entitiesBattle(player,monster);
 
 		scanner.close();
 

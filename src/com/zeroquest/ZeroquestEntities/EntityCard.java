@@ -1,6 +1,6 @@
 package com.zeroquest.ZeroquestEntities;
 
-public class Cards {
+public class EntityCard {
 	
 	String cardName;
 	int cardCost;

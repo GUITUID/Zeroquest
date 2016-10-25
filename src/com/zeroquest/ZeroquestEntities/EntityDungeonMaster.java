@@ -1,6 +1,6 @@
 package com.zeroquest.ZeroquestEntities;
 
-public class DungeonMaster {
+public class EntityDungeonMaster {
 	
 	public String getDungeonMasterRank() {
 		return dungeonMasterRank;
@@ -26,10 +26,10 @@ public class DungeonMaster {
 	public void setDungeonMasterPoints(int dungeonMasterPoints) {
 		this.dungeonMasterPoints = dungeonMasterPoints;
 	}
-	public Cards[] getDungeonMasterCardsHand() {
+	public EntityCard[] getDungeonMasterCardsHand() {
 		return dungeonMasterCardsHand;
 	}
-	public void setDungeonMasterCardsHand(Cards[] dungeonMasterCardsHand) {
+	public void setDungeonMasterCardsHand(EntityCard[] dungeonMasterCardsHand) {
 		this.dungeonMasterCardsHand = dungeonMasterCardsHand;
 	}
 	public int getDungeonMasterSelectedCardInHand() {
@@ -38,10 +38,10 @@ public class DungeonMaster {
 	public void setDungeonMasterSelectedCardInHand(int dungeonMasterSelectedCardInHand) {
 		this.dungeonMasterSelectedCardInHand = dungeonMasterSelectedCardInHand;
 	}
-	public Tiles[] getDungeonMasterTilesHand() {
+	public EntityTile[] getDungeonMasterTilesHand() {
 		return dungeonMasterTilesHand;
 	}
-	public void setDungeonMasterTilesHand(Tiles[] dungeonMasterTilesHand) {
+	public void setDungeonMasterTilesHand(EntityTile[] dungeonMasterTilesHand) {
 		this.dungeonMasterTilesHand = dungeonMasterTilesHand;
 	}
 	public int getDungeonMasterSelectedTileInHand() {
@@ -55,10 +55,10 @@ public class DungeonMaster {
 	int dungeonMasterXp;
 	int dungeonMasterPoints;
 	
-	Cards[] dungeonMasterCardsHand;
+	EntityCard[] dungeonMasterCardsHand;
 	int dungeonMasterSelectedCardInHand;
 	
-	Tiles[] dungeonMasterTilesHand;
+	EntityTile[] dungeonMasterTilesHand;
 	int dungeonMasterSelectedTileInHand;
 	
 	

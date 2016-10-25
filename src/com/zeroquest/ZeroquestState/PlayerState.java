@@ -1,24 +1,24 @@
 package com.zeroquest.ZeroquestState;
 import static java.lang.System.out;
 
-import com.zeroquest.ZeroquestEntities.Monster;
-import com.zeroquest.ZeroquestEntities.Object;
-import com.zeroquest.ZeroquestEntities.Player;
+import com.zeroquest.ZeroquestEntities.EntityMonster;
+import com.zeroquest.ZeroquestEntities.EntityObject;
+import com.zeroquest.ZeroquestEntities.EntityPlayer;
 import com.zeroquest.ZeroquestWorld.Place;
 
 public class PlayerState {
 
 	
 
-	public static void flee(Player player) {
+	public static void flee(EntityPlayer player) {
 		player.setEntityState("flee.");
 	}
 
-	public static void eat(Player player, Object object) {
+	public static void eat(EntityPlayer player, EntityObject object) {
 		player.setEntityState("eat" + object.getObjectName());
 	}
 	
-	public static void drink(Player player, Object object)
+	public static void drink(EntityPlayer player, EntityObject object)
 	{
 		if(player.getEntityAlcoholResistance()<player.getEntityAlcoholLevel()){
 			getDrunk(player);
@@ -28,17 +28,17 @@ public class PlayerState {
 		}
 	}
 	
-	public static void getDrunk(Player player)
+	public static void getDrunk(EntityPlayer player)
 	{
 		player.setEntityState("is totally drunk.");
 	}
 	
-	public static void dead(Player player)
+	public static void dead(EntityPlayer player)
 	{
 		player.setEntityState("is dead.");
 	}
 	
-	public static void look(Player player, Object object, Place place)
+	public static void look(EntityPlayer player, EntityObject object, Place place)
 	{
 		if(object!=null){
 			player.setEntityState("look at" + object.getObjectName());
@@ -47,22 +47,22 @@ public class PlayerState {
 		}
 	}
 	
-	public static void sleep(Player player, Place place)
+	public static void sleep(EntityPlayer player, Place place)
 	{
 		player.setEntityState("is asleep");
 	}
 	
-	public static void deepsleep(Player player, Place place)
+	public static void deepsleep(EntityPlayer player, Place place)
 	{
 		player.setEntityState("is deeply asleep");
 	}
 	
-	public static void poisoned(Player player)
+	public static void poisoned(EntityPlayer player)
 	{
 		player.setEntityState("is poisoned");
 	}
 	
-	public static void sick(Player player)
+	public static void sick(EntityPlayer player)
 	{
 		player.setEntityState("is sick");
 	}
@@ -93,7 +93,7 @@ public class PlayerState {
 		//}
 	}
 	
-	public void playerChoseToFight(Player player, Monster monster)
+	public void playerChoseToFight(EntityPlayer player, EntityMonster monster)
 	{
 		out.println(player.getEntityName()+" face a "+monster.getEntityName());
 

@@ -1,6 +1,6 @@
 package com.zeroquest.ZeroquestEntities;
 
-public class Objects {
+public class EntityObjects {
 	
 	String objectName;
 	String objectPath;

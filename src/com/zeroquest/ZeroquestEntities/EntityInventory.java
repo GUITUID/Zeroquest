@@ -1,6 +1,6 @@
-package com.zeroquest.ZeroquestInventory;
+package com.zeroquest.ZeroquestEntities;
 
-public class Inventory {
+public class EntityInventory {
 
 //Les 10 variables de l'inventaire sont stockées dans un tableau
 int equipment_durability;
