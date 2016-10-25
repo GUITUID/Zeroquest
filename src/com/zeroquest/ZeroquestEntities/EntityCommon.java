@@ -19,9 +19,11 @@
 package com.zeroquest.ZeroquestEntities;
 import java.util.Random;
 
+import com.zeroquest.ZeroquestHelpers.Constants;
+
 import static java.lang.System.out;
 
-public class CommonEntity {
+public class EntityCommon {
 
 	//----------------------------------------
 	//|       VARIABLES & CONSTANTS          |
@@ -38,6 +40,10 @@ public class CommonEntity {
 	private int entityCurrentXp;
 	//Entity total experience points
 	private int entityTotalXp;
+	//Entity Map, map where the entity is
+	private String entityMap;
+	//Entity City, city where the entity is
+	private String entityCity;
 	//Entity horizontal position
 	private int entityXPosition;
 	//Entity vertical position
@@ -61,21 +67,11 @@ public class CommonEntity {
 	//Entity Token
 	private String entityToken;
 	//Entity Gold
-		private int entityGold;
+	private int entityGold;
+	//Entity Starting City
+	private int entityStartingCity;
 
-	//List of classes stats
-	protected static int[][] classStatistics = 
-		{
-				{ //Attack dices 0
-					3,2,5
-				},
-				{ //Defense dices 1
-					3,5,2
-				},
-				{ //Health points 2
-					10,12,12
-				}
-		};
+
 
 	//----------------------------------------
 	//|         GET & SET METHODS            |
@@ -98,19 +94,14 @@ public class CommonEntity {
 			int randomRace = new Random().nextInt(3);
 			entityRace = randomRace;
 		}
-
 	}
 	public int getEntityRace() {
 		return entityRace;
 	}
-	public String getEntityRaceName(Player p)
+	//retunr entity race name
+	public String getEntityRaceName(int entityRace)
 	{
-		String [] entityRaceNames =
-			{
-					"Human", "Dwarf", "Elf"
-			};
-
-		return entityRaceNames[p.getEntityRace()];
+		return Constants.entityRaceNames[entityRace];
 	}
 
 	//Entity class
@@ -127,15 +118,10 @@ public class CommonEntity {
 	{
 		return entityClass;
 	}
-	public String getEntityClassName(Player p)
-	{
-		//Names of classes
-		String [] entityClassNames =
-			{
-					"Warrior", "Paladin", "Barbarian"
-			};
-
-		return entityClassNames[p.getEntityClass()];
+	//retunr entity class name
+	public String getEntityClassName(int entityClass)
+	{	
+		return Constants.entityClassNames[entityClass];
 	}
 
 	//Entity level
@@ -186,11 +172,29 @@ public class CommonEntity {
 		return entityYPosition;
 	}
 
+	public void setEntityMap(String entityMapIn)
+	{
+		entityMap = entityMapIn;
+	}
+	public String getEntityMap()
+	{
+		return entityMap;
+	}
+
+	public void setEntityCity(String entityCityIn)
+	{
+		entityCity = entityCityIn;
+	}
+	public String getEntityCity()
+	{
+		return entityCity;
+	}
+
 	//Entity defense & attack
 	public void setEntityAttack(int entityAttackIn)
 	{
-
-		entityAttack = classStatistics[0][entityAttackIn];
+		
+		//entityAttack = classStatistics[0][entityAttackIn];
 	}
 	public int getEntityAttackValue()
 	{
@@ -199,7 +203,7 @@ public class CommonEntity {
 
 	public void setEntityDefense(int entityDefenseIn)
 	{
-		entityDefense = classStatistics[1][entityDefenseIn];
+		//entityDefense = classStatistics[1][entityDefenseIn];
 	}
 	public int getEntityDefense()
 	{
@@ -224,8 +228,7 @@ public class CommonEntity {
 	//Entity health points
 	public void setEntityCurrentHealth(int entityCurrentHealthIn)
 	{	
-
-		entityCurrentHealth = classStatistics[2][entityCurrentHealthIn];
+		//entityCurrentHealth = classStatistics[2][entityCurrentHealthIn];
 	}
 	public int getEntityCurrentHealth()
 	{
@@ -234,7 +237,7 @@ public class CommonEntity {
 
 	public void setEntityTotalHealth(int entityTotalHealthIn)
 	{
-		entityTotalHealth = classStatistics[2][entityTotalHealthIn];
+		//entityTotalHealth = classStatistics[2][entityTotalHealthIn];
 	}
 	public int getEntityTotalHealth()
 	{
@@ -257,18 +260,34 @@ public class CommonEntity {
 	{
 		return entityPortrait;
 	}
-	
-	
-	
-	//Entity level
-		public void setEntityGold(int entityGoldIn)
-		{
-			entityGold = entityGoldIn;
-		}
-		public int getEntityGold()
-		{
-			return entityGold;
-		}
+
+	//Entity Gold
+	public void setEntityGold(int entityGoldIn)
+	{
+		entityGold = entityGoldIn;
+	}
+	public int getEntityGold()
+	{
+		return entityGold;
+	}
+
+	//Entity Starting City
+	public void setEntityStartingCity(EntityPlayer p)
+	{	
+		entityStartingCity=p.getEntityRace();
+
+	}
+	//Entity Starting City
+	public int getEntityStartingCity()
+	{	
+		return entityStartingCity;
+
+	}
+	//return starting city speech
+	public void getEntityCitySpeech(int entityCity)
+	{
+		//return entityStartingCity[entityCity];
+	}
 
 	/**
 	 * Method that sets the entity token path, depending on class and race chosen by the player<br/>
@@ -294,7 +313,12 @@ public class CommonEntity {
 
 	/**
 	 * Heroquest dice type:<br/> 
-	 * "Shield", "Shield", "Skull", "Skull", "Ennemy Shield", "Skull"
+	 * <table>
+	 * <tl>
+	 * <td>Shield</td><td>Shield</td><td>Skull</td><td>Skull</td><td>Ennemy Shield</td><td>Skull</td></tl>
+	 * <tl><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+	 * </tl>
+	 * </table>
 	 */
 	protected static String [] heroquestDiceType = 
 		{
@@ -302,7 +326,7 @@ public class CommonEntity {
 		};
 
 	/**
-	 * Method that set the health lost during a battle or an event <br/>
+	 * Method that set the health lost during a battde or an event <br/>
 	 * @param healthLost
 	 */
 	public void entityLoseHealth(int healthLost)
@@ -329,5 +353,5 @@ public class CommonEntity {
 		}
 		return numberOfAttackDice;
 	}
-	
+
 }

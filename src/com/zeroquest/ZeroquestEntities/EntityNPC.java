@@ -1,10 +1,10 @@
 package com.zeroquest.ZeroquestEntities;
 import java.util.Random;
 
-public class Pnj extends CommonEntity {
+public class EntityNPC extends EntityCommon {
 
 //player defense method
-int pnjDef(Pnj pnj)
+int pnjDef(EntityNPC pnj)
     {
 	    int a = 0;
 		for(int i=0; i!=pnj.getEntityDefense(); i++)

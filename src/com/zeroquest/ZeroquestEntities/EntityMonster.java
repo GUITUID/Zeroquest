@@ -2,7 +2,7 @@ package com.zeroquest.ZeroquestEntities;
 
 import java.util.Random;
 
-public class Monster extends CommonEntity
+public class EntityMonster extends EntityCommon
 	{
 		/**
 		 * Monster list:<br/>
@@ -38,7 +38,7 @@ public class Monster extends CommonEntity
 		/**
 		 * Monster constructor
 		 */
-		public Monster()
+		public EntityMonster()
 			{
 				int randomMonster = new Random().nextInt(12);
 				setEntityName(monstersList[0][randomMonster]);
@@ -54,7 +54,7 @@ public class Monster extends CommonEntity
 		 * @param monster
 		 * @return monsterDefense
 		 */
-		public int monsterDefense(Monster monster) 
+		public int monsterDefense(EntityMonster monster) 
 			{
 		    		int monsterDefense = 0;
 		    		for(int i=0; i!=monster.getEntityDefense(); i++)

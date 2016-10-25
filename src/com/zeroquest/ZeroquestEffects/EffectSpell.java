@@ -1,5 +1,5 @@
 package com.zeroquest.ZeroquestEffects;
 
-public class Spells {
+public class EffectSpell {
 
 }

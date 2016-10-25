@@ -1,6 +1,6 @@
 package com.zeroquest.ZeroquestEntities;
 
-public class Object {
+public class EntityObject {
 
 	public String getObjectName() {
 		// TODO Auto-generated method stub

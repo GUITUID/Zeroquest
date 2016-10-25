@@ -2,7 +2,7 @@ package com.zeroquest.ZeroquestEntities;
 
 import java.lang.reflect.Array;
 
-public class Tiles {
+public class EntityTile {
 	
 	String tileType;
 	String tileOrientation;

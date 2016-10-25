@@ -3,7 +3,7 @@ import static java.lang.System.out;
 
 import java.util.Random;
 
-public class Player extends CommonEntity 
+public class EntityPlayer extends EntityCommon 
     {
 	
     //Actions a player can do
@@ -40,7 +40,7 @@ public class Player extends CommonEntity
     }
 
 	//player defense method
-	public int playerDefense(Player player)
+	public int playerDefense(EntityPlayer player)
 	    {
 	        int playerDefense = 0;
 	        for(int i=0; i!=player.getEntityDefense(); i++)

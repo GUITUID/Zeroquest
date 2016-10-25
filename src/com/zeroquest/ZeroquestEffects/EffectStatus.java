@@ -1,5 +1,5 @@
 package com.zeroquest.ZeroquestEffects;
 
-public class Status {
+public class EffectStatus {
 
 }
