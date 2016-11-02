@@ -6,6 +6,10 @@ import java.util.Random;
 public class EntityPlayer extends EntityCommon 
     {
 	
+	static int startingCity;
+	
+	
+	
     //Actions a player can do
     static String [] playerActions =
 	{
@@ -15,7 +19,7 @@ public class EntityPlayer extends EntityCommon
     //Speech when player hits
     static String [] playerHitSpeech =
 	{
-     		"You deserved it!", "Take that in your face!", "You seem to be tired...", "Tu fais moins le malin là , non ?",
+     		"You deserved it!", "Take that in your face!", "You seem to be tired...", "Aint' no more laughing did ya ?",
                     "That's how you do it!", "That'll teach you no to piss me off!"
     };
     
@@ -53,5 +57,7 @@ public class EntityPlayer extends EntityCommon
 	            }
 	        return playerDefense;
 	    }
+	
+	
 
     }

@@ -29,49 +29,47 @@ public class EntityCommon {
 	//|       VARIABLES & CONSTANTS          |
 	//----------------------------------------	
 	//Entity name
-	private String entityName;
+	private static String entityName;
 	//Entity class
-	private int entityRace;
+	private static int entityRace;
 	//Entity class
-	private int entityClass;
+	private static int entityClass;
 	//Entity level
-	private int entityLevel;
+	private static int entityLevel;
 	//Entity current experience points
-	private int entityCurrentXp;
+	private static int entityCurrentXp;
 	//Entity total experience points
-	private int entityTotalXp;
+	private static int entityTotalXp;
 	//Entity Map, map where the entity is
-	private String entityMap;
+	private static String entityMap;
 	//Entity City, city where the entity is
-	private String entityCity;
+	private static int entityCity;
 	//Entity horizontal position
-	private int entityXPosition;
+	private static int entityXPosition;
 	//Entity vertical position
-	private int entityYPosition;
+	private static int entityYPosition;
 	//Entity attack dice
-	private int entityAttack;
+	private static int entityAttack;
 	//Entity defense dice
-	private int entityDefense;
+	private static int entityDefense;
 	//Entity alcohol level
-	private int entityAlcoholLevel;
+	private static int entityAlcoholLevel;
 	//Entity alcohol resistance
-	private int entityAlcoholResistance;
+	private static int entityAlcoholResistance;
 	//Entity current health points
-	private int entityCurrentHealth;
+	private static int entityCurrentHealth;
 	//Entity total health points
-	private int entityTotalHealth;
+	private static int entityTotalHealth;
 	//Entity State
 	private static String entityState;
 	//Entity Portrait
-	private String entityPortrait;
+	private static String entityPortrait;
 	//Entity Token
-	private String entityToken;
+	private static String entityToken;
 	//Entity Gold
-	private int entityGold;
+	private static int entityGold;
 	//Entity Starting City
-	private int entityStartingCity;
-
-
+	private static int entityStartingCity;
 
 	//----------------------------------------
 	//|         GET & SET METHODS            |
@@ -98,10 +96,10 @@ public class EntityCommon {
 	public int getEntityRace() {
 		return entityRace;
 	}
-	//retunr entity race name
+	//return entity race name
 	public String getEntityRaceName(int entityRace)
 	{
-		return Constants.entityRaceNames[entityRace];
+		return Constants.getEntityRaceName(entityRace);
 	}
 
 	//Entity class
@@ -121,7 +119,7 @@ public class EntityCommon {
 	//retunr entity class name
 	public String getEntityClassName(int entityClass)
 	{	
-		return Constants.entityClassNames[entityClass];
+		return Constants.getEntityClassName(entityClass);
 	}
 
 	//Entity level
@@ -180,34 +178,50 @@ public class EntityCommon {
 	{
 		return entityMap;
 	}
-
-	public void setEntityCity(String entityCityIn)
+	//entity actual city
+	public void setEntityCity(int entityCityIn)
 	{
 		entityCity = entityCityIn;
 	}
-	public String getEntityCity()
+	public int getEntityCity()
 	{
 		return entityCity;
+	}
+	//entity starting city
+	public void setEntityStartingCity(int entityStartingCityIn)
+	{
+		entityStartingCity = entityStartingCityIn;
+	}
+	public int getEntityStartingCity()
+	{
+		return entityStartingCity;
 	}
 
 	//Entity defense & attack
 	public void setEntityAttack(int entityAttackIn)
 	{
-		
-		//entityAttack = classStatistics[0][entityAttackIn];
+		entityAttack = entityAttackIn;
 	}
-	public int getEntityAttackValue()
+	public int getEntityAttack()
 	{
 		return entityAttack;
+	}
+	public int getEntityAttackFromClass(int classNumber)
+	{
+		return Constants.getEntityClassAttack(classNumber);
 	}
 
 	public void setEntityDefense(int entityDefenseIn)
 	{
-		//entityDefense = classStatistics[1][entityDefenseIn];
+		entityDefense = entityDefenseIn;
 	}
 	public int getEntityDefense()
 	{
 		return entityDefense;
+	}
+	public int getEntityDefenseFromClass(int classNumber)
+	{
+		return Constants.getEntityClassDefense(classNumber);
 	}
 
 	//Entity alcohol system points
@@ -228,20 +242,25 @@ public class EntityCommon {
 	//Entity health points
 	public void setEntityCurrentHealth(int entityCurrentHealthIn)
 	{	
-		//entityCurrentHealth = classStatistics[2][entityCurrentHealthIn];
+		entityCurrentHealth = entityCurrentHealthIn;
 	}
 	public int getEntityCurrentHealth()
 	{
 		return entityCurrentHealth;
 	}
 
+
 	public void setEntityTotalHealth(int entityTotalHealthIn)
 	{
-		//entityTotalHealth = classStatistics[2][entityTotalHealthIn];
+		entityTotalHealth = entityTotalHealthIn;
 	}
 	public int getEntityTotalHealth()
 	{
 		return entityTotalHealth;
+	}
+	public int getEntityTotalHealthFromClass(int classNumber)
+	{
+		return Constants.getEntityClassHealthPoints(classNumber);
 	}
 
 	public String getEntityState() {
@@ -271,22 +290,10 @@ public class EntityCommon {
 		return entityGold;
 	}
 
-	//Entity Starting City
-	public void setEntityStartingCity(EntityPlayer p)
-	{	
-		entityStartingCity=p.getEntityRace();
-
-	}
-	//Entity Starting City
-	public int getEntityStartingCity()
-	{	
-		return entityStartingCity;
-
-	}
 	//return starting city speech
-	public void getEntityCitySpeech(int entityCity)
+	public String getEntityCitySpeech(int entityCity)
 	{
-		//return entityStartingCity[entityCity];
+		return Constants.getEntityCitySpeech(entityCity);
 	}
 
 	/**
@@ -320,7 +327,7 @@ public class EntityCommon {
 	 * </tl>
 	 * </table>
 	 */
-	protected static String [] heroquestDiceType = 
+	protected String [] heroquestDiceType = 
 		{
 				"Shield", "Shield", "Skull", "Skull", "Ennemy Shield", "Skull"
 		};
@@ -343,7 +350,7 @@ public class EntityCommon {
 	{
 		int numberOfAttackDice = 0;
 
-		for(int i=0; i!=getEntityAttackValue(); i++)
+		for(int i=0; i!=getEntityAttack(); i++)
 		{
 			int randomDice = new Random().nextInt(6);
 			if(heroquestDiceType[randomDice]=="Skull")

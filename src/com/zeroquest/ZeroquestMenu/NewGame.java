@@ -11,6 +11,7 @@ import com.badlogic.gdx.utils.JsonWriter.OutputType;
 import com.zeroquest.ZeroquestActions.Battle;
 import com.zeroquest.ZeroquestEntities.EntityMonster;
 import com.zeroquest.ZeroquestEntities.EntityPlayer;
+import com.zeroquest.ZeroquestHelpers.Constants;
 import com.zeroquest.ZeroquestState.Saving;
 
 public class NewGame {
@@ -18,7 +19,7 @@ public class NewGame {
 	 * Create a new character
 	 */
 	public static void createCharacter() {
-		Scanner scanner = new Scanner(System.in);
+	Scanner scanner = new Scanner(System.in);
 
 		out.println("--------------------------------------------------------------------------");
 		out.println("|                     ~~ CHARACTER CREATION ~~                           |");
@@ -35,69 +36,54 @@ public class NewGame {
 		out.println("|                            PICK A RACE                                 |");
 		out.println("--------------------------------------------------------------------------");
 		out.println("Please pick a race:\n"
-				+ "\n\t[Info: New races will be implemented later]\n"
-				+ "\n\t1)Human\n"
-				+ "\tJack of all trade, master of none\n"
-				+ "\n\t2)Dwarf\n"
-				+ "\tTreasure finder, heavy drinker\n"
-				+ "\n\t3)Elf\n"
-				+ "\tBoulder..., vegetables eater...\n"
-				+ "\n\t10)Random");
-		//New races will be implemented later
+				+ "\n\t[Info: New races will be implemented later]\n");
+
+		int currentRaceNumber=0;
+
+		while(currentRaceNumber<Constants.getActualAvailableRaces()){
+			out.println("\n\t"+(currentRaceNumber+1)+")"+ Constants.getEntityRaceName(currentRaceNumber) +"\n"
+					+ "\t"+ Constants.getEntityRaceSpeech(currentRaceNumber) +"\n");
+			currentRaceNumber=currentRaceNumber+1;
+		}
+
 		int raceChoice = scanner.nextInt();
+
+
 		//TODO check input from user
 		out.println("--------------------------------------------------------------------------");
 		out.println("|                           PICK A CLASS                                 |");
 		out.println("--------------------------------------------------------------------------");
 		out.println("Please pick a class:\n"
-				+ "\n\t[Info: New classes will be implemented later]\n"
-				+ "\n\t1)Warrior\n"
-				+ "\tHP:10\tAtk:3\tDef:3\n"
-				+ "\tAn equilibrated class, good for starting\n"
-				+ "\n\t2)Paladin\n"
-				+ "\tHP:12\tAtk:2\tDef:5\n"
-				+ "\tA tanking class, good for taking damages\n"
-				+ "\n\t3)Barbarian\n"
-				+ "\tHP:12\tAtk:5\tDef:2\n"
-				+ "\tA dps class, good for making damages\n"
-				//New classes will be implemented later
-				//+ "\n4)Thief\n"
-				//+ "HP:6|Atk:4|Def:2\n"
-				//+ "A dps class with extra damages if he hit ennemies from behind \n"
-				//+ "\n5)Archer\n"
-				//+ "HP:6|Atk:4|Def:2\n"
-				//+ "A dps class with ability to shoot from distance\n"
-				//+ "\n6)Mage\n"
-				//+ "HP:4|Atk:4|Def:2\n"
-				//+ "A dps class with powerful magic\n"
-				//+ "\n7)Priest\n"
-				//+ "HP:8|Atk:2|Def:3\n"
-				//+ "A healing class, good for assist\n"
-				//+ "\n8)[ELITE CLASS: Monk]\n"
-				//+ "HP:6|Atk:5|Def:1\n"
-				//+ "A dps class fighting only with hands\n"
-				//+ "\n9)[ELITE CLASS: Ninja]\n"
-				//+ "HP:6|Atk:4|Def:2\n"
-				//+ "A dps class with powerful special habilities\n"
-				+ "\n\t10)Random");
-		
+				+ "\n\t[Info: New classes will be implemented later]\n");
+
+		int currentClassNumber=0;
+
+		while(currentClassNumber<Constants.getActualAvailableRaces()){
+			out.println("\n\t"+(currentClassNumber+1)+")"+ Constants.getEntityClassName(currentClassNumber) +"\n"
+					+ "\tAttack:"+ Constants.getEntityClassAttack(currentClassNumber)+"|Defense:"+ Constants.getEntityClassDefense(currentClassNumber)+"|Health:"+ Constants.getEntityClassHealthPoints(currentClassNumber) +"\n"
+					+ "\t"+ Constants.getEntityClassSpeech(currentClassNumber) +"\n");
+			currentClassNumber=currentClassNumber+1;
+		}
+
+		out.println( "\n\t10)Random\n");
+
 		int classChoice = scanner.nextInt();
 		//TODO check input from user
 
-		EntityPlayer player = new EntityPlayer();
-		player.setEntityName(pseudoChoice);
-		player.setEntityRace(raceChoice-1);
-		player.setEntityClass(classChoice-1);
-		player.setEntityCurrentHealth(player.getEntityClass());
-		player.setEntityTotalHealth(player.getEntityClass());
-		player.setEntityAttack(player.getEntityClass());
-		player.setEntityDefense(player.getEntityClass());
-		player.setEntityLevel(1);
-		player.setEntityCurrentXp(0);
-		player.setEntityTotalXp(100);
+		EntityPlayer p = new EntityPlayer();
+		p.setEntityName(pseudoChoice);
+		p.setEntityRace(raceChoice-1);
+		p.setEntityClass(classChoice-1);
+		p.setEntityCurrentHealth(p.getEntityTotalHealthFromClass(classChoice-1));
+		p.setEntityTotalHealth(p.getEntityTotalHealthFromClass(classChoice-1));
+		p.setEntityAttack(p.getEntityAttackFromClass(classChoice-1));
+		p.setEntityDefense(p.getEntityDefenseFromClass(classChoice-1));
+		p.setEntityLevel(1);
+		p.setEntityCurrentXp(0);
+		p.setEntityTotalXp(100);
 		int randomGold = new Random().nextInt(10);
-		player.setEntityGold(randomGold);
-		player.setEntityStartingCity(player);
+		p.setEntityGold(randomGold);
+		p.setEntityStartingCity(p.getEntityRace());
 
 		//Create a new json file for saving character status
 		Json playerDatas = new Json();
@@ -105,7 +91,7 @@ public class NewGame {
 
 		//saving newly created character in a json format
 		try {
-			Saving.saveFile(pseudoChoice, playerDatas.prettyPrint(player), "character");
+			Saving.saveFile(pseudoChoice, playerDatas.prettyPrint(p), "character");
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			out.println("Error: error when creating character file");
@@ -118,36 +104,34 @@ public class NewGame {
 		out.println("|        CONGRATULATION YOUR CHARACTER WAS SUCCESSFULY CREATED           |");
 		out.println("--------------------------------------------------------------------------");
 		out.println("Here are your character information:\n"
-				+ "\n\t[Pseudo: " + player.getEntityName()+"]"
+				+ "\n\t[Pseudo: " + p.getEntityName()+"]"
 				//+ "\nRace:" + p.getERace()//p.getERaceName(getERace())
-				+ "\n\t[Race: " + player.getEntityRaceName(player.getEntityRace())+"]"
+				+ "\n\t[Race: " + p.getEntityRaceName(p.getEntityRace())+"]"
 				//+ "\nClass:" + p.getEClass()//p.getEClassName(getEClass())
-				+ "\n\t[Class: " + player.getEntityClassName(player.getEntityClass())+"]"
+				+ "\n\t[Class: " + p.getEntityClassName(p.getEntityClass())+"]"
 				+ "\n\n\tStats:"
-				+ "\n\t[Level: " + player.getEntityLevel()+"]"	
-				+ "\n\t[Xp: " + player.getEntityCurrentXp()+"/" +player.getEntityTotalXp()+"]"
-				+ "\n\t[Attack:" + player.getEntityAttackValue()+"]"	
-				+ "\n\t[Defense:" + player.getEntityDefense()+"]"
-				+ "\n\t[Health:" + player.getEntityCurrentHealth()+"/" +player.getEntityTotalHealth()+"]"
-				+ "\n\t[Gold:" + player.getEntityGold()+"]");
+				+ "\n\t[Level: " + p.getEntityLevel()+"]"	
+				+ "\n\t[Xp: " + p.getEntityCurrentXp()+"/" +p.getEntityTotalXp()+"]"
+				+ "\n\t[Attack:" + p.getEntityAttack()+"]"	
+				+ "\n\t[Defense:" + p.getEntityDefense()+"]"
+				+ "\n\t[Health:" + p.getEntityCurrentHealth()+"/" +p.getEntityTotalHealth()+"]"
+				+ "\n\t[Gold:" + p.getEntityGold()+"]\n");
 		
+		out.println(p.getEntityCitySpeech(raceChoice-1));
+
 		//TODO implements the rest of newgame
 		//Starting cities already implemented to link with actions system
-		//out.println(player.getEntityStartingCitySpeech(player));
+		//out.println(Constants.getEntityStartingCitySpeech(p));
 		//out.println("\nWhat's your plans ?");
+
+		//Battle system works with these parameters 
+		//EntityMonster monster = new EntityMonster();
+		//out.println("A "+monster.getEntityName()+" appears on your way");
 		
-		EntityMonster monster = new EntityMonster();
-		
-				//Player p = new Player();
-				//p.setEName("Zadwarf");
-				//p.setECurrentHp(10);
-				//p.setETotalHp(10);
-				//p.setEAtk(3);
-				//p.setEDef(3);
 
 		//pchoice(player,m);
 
-		Battle.entitiesBattle(player,monster);
+		//Battle.entitiesBattle(p,monster);
 
 		scanner.close();
 

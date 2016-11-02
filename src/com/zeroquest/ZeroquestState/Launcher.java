@@ -1,26 +1,21 @@
 package com.zeroquest.ZeroquestState;
 
 import com.zeroquest.ZeroquestMenu.Menu;
-
+/**
+ * Launcher first call the intro (splashscreen) and then call the menu 
+ * @author Zadwarf
+ * @version 0.28102016
+ * 
+ */
 public class Launcher {
 	/**
 	 * Launch the intro (splashscreen) and menu
 	 */
 	public void start()
 	{
-		//Monster m = new Monster();
-		//Player p = new Player();
-		//p.setEName("Zadwarf");
-		//p.setECurrentHp(10);
-		//p.setETotalHp(10);
-		//p.setEAtk(3);
-		//p.setEDef(3);
-
-		//pchoice(p,m);
-
-		//battle(p,m);
-
+		//Calling Splashscreen
 		State.intro();
+		//Calling Menu
 		Menu.menu();
 	}
 
