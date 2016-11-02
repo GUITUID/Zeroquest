@@ -9,7 +9,7 @@ public class Battle {
 
 	public static void entitiesBattle(EntityPlayer p, EntityMonster m)
 	{
-		out.println(m.getEntityName()+" attack "+p.getEntityName());
+		out.println(m.getEntityName()+" attacks "+p.getEntityName());
 
 		while(p.getEntityCurrentHealth()>0||m.getEntityCurrentHealth()>0)
 		{
@@ -19,8 +19,8 @@ public class Battle {
 
 			if(playerGetHitXTimes>0)
 			{
-				out.println(m.getEntityName() +" attack "+ monsterAttack +" times.");
-				out.println(p.getEntityName() +" defend "+ playerDefense +" times.");
+				out.println(m.getEntityName() +" attacks "+ monsterAttack +" times.");
+				out.println(p.getEntityName() +" defends "+ playerDefense +" times.");
 				out.println(p.getEntityName() +" is hit "+ playerGetHitXTimes +" times.");
 				p.entityLoseHealth(playerGetHitXTimes);
 
@@ -46,8 +46,8 @@ public class Battle {
 
 			if(monsterGetHitXTimes>0)
 			{
-				out.println(p.getEntityName() +" attack "+ playerAttack +" times.");
-				out.println(m.getEntityName() +" defend "+ monsterDefense +" times.");
+				out.println(p.getEntityName() +" attacks "+ playerAttack +" times.");
+				out.println(m.getEntityName() +" defends "+ monsterDefense +" times.");
 				out.println(m.getEntityName() + " is hit "+ monsterGetHitXTimes +" times.");
 				out.print(p.getEntityName() + " says: ");
 				p.playerHitSpeech();
