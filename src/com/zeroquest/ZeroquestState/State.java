@@ -42,6 +42,7 @@ public class State {
 	 */
 	public static void quit() {
 		//TODO save all files before exit
+		// Saving.save(Player)
 		System.exit(0);
 	}
 }

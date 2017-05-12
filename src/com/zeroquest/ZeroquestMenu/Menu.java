@@ -4,6 +4,8 @@ import static java.lang.System.out;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import com.zeroquest.ZeroquestState.State;
 /**
  * Stores the menu options and actions to do when one option is selected <br/>
@@ -13,6 +15,14 @@ import com.zeroquest.ZeroquestState.State;
 public class Menu {
 	
 	public static void menu() {
+		
+			// Standard UI design
+		    //String[] options = new String[] {"New game", "Load Game", "Multiplayer", "Quit"};
+		    //int menuChoice = JOptionPane.showOptionDialog(null, "Menu", "Menu",
+		            //JOptionPane.PLAIN_MESSAGE, 0, null, options, options[0]);
+
+		    // Where response == 0 for Yes, 1 for No, 2 for Maybe and -1 or 3 for Escape/Cancel.
+
 		
 		out.println("--------------------------------------------------------------------------");
 		out.println("|                              MENU                                      |");
@@ -29,7 +39,7 @@ public class Menu {
     		NewGame.createCharacter();
     		break;
     	case 2:
-    		out.println("Not implemented yet\n");
+    		LoadGame.loadCharacter();
     		
     		//out.println("Please select a saved game:\n");
     		break;

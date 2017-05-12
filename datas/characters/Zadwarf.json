@@ -1,11 +1,11 @@
 {
-"entityName": "Zadwarf",
-"entityRace": 1,
-"entityLevel": 1,
-"entityTotalXp": 100,
-"entityAttack": 3,
-"entityDefense": 3,
-"entityCurrentHealth": 10,
-"entityTotalHealth": 10,
-"entityGold": 3
+"playerDataToSaveName": "Zadwarf",
+"playerDataToSaveRace": 1,
+"playerDataToSaveLevel": 1,
+"playerDataToSaveTotalXp": 100,
+"playerDataToSaveAttack": 3,
+"playerDataToSaveDefense": 3,
+"playerDataToSaveCurrentHealth": 10,
+"playerDataToSaveTotalHealth": 10,
+"playerDataToSaveGold": 2
 }

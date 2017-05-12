@@ -2,24 +2,21 @@ package com.zeroquest.ZeroquestMenu;
 
 import static java.lang.System.out;
 
-import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
-import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.JsonWriter.OutputType;
-import com.zeroquest.ZeroquestActions.Battle;
-import com.zeroquest.ZeroquestEntities.EntityMonster;
 import com.zeroquest.ZeroquestEntities.EntityPlayer;
 import com.zeroquest.ZeroquestHelpers.Constants;
-import com.zeroquest.ZeroquestState.Saving;
 
 public class NewGame {
+	
 	/**
 	 * Create a new character
 	 */
 	public static void createCharacter() {
-	Scanner scanner = new Scanner(System.in);
+		
+		
+		Scanner scanner = new Scanner(System.in);
 
 		out.println("--------------------------------------------------------------------------");
 		out.println("|                     ~~ CHARACTER CREATION ~~                           |");
@@ -48,7 +45,6 @@ public class NewGame {
 
 		int raceChoice = scanner.nextInt();
 
-
 		//TODO check input from user
 		out.println("--------------------------------------------------------------------------");
 		out.println("|                           PICK A CLASS                                 |");
@@ -67,57 +63,53 @@ public class NewGame {
 
 		out.println( "\n\t10)Random\n");
 
+		
 		int classChoice = scanner.nextInt();
-		//TODO check input from user
-
-		EntityPlayer p = new EntityPlayer();
-		p.setEntityName(pseudoChoice);
-		p.setEntityRace(raceChoice-1);
-		p.setEntityClass(classChoice-1);
-		p.setEntityCurrentHealth(p.getEntityTotalHealthFromClass(classChoice-1));
-		p.setEntityTotalHealth(p.getEntityTotalHealthFromClass(classChoice-1));
-		p.setEntityAttack(p.getEntityAttackFromClass(classChoice-1));
-		p.setEntityDefense(p.getEntityDefenseFromClass(classChoice-1));
-		p.setEntityLevel(1);
-		p.setEntityCurrentXp(0);
-		p.setEntityTotalXp(100);
-		int randomGold = new Random().nextInt(10);
-		p.setEntityGold(randomGold);
-		p.setEntityStartingCity(p.getEntityRace());
-
-		//Create a new json file for saving character status
-		Json playerDatas = new Json();
-		playerDatas.setOutputType(OutputType.json);
-
-		//saving newly created character in a json format
-		try {
-			Saving.saveFile(pseudoChoice, playerDatas.prettyPrint(p), "character");
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			out.println("Error: error when creating character file");
-			e1.printStackTrace();
+		 
+		if(classChoice==10){
+			classChoice=new Random().nextInt(9);
 		}
+
+		//TODO check input from user
+		EntityPlayer player = new EntityPlayer();
+		player.setEntityName(pseudoChoice);
+		player.setEntityRace(raceChoice-1);
+		player.setEntityClass(classChoice-1);
+		player.setEntityCurrentHealth(player.getEntityTotalHealthFromClass(classChoice-1));
+		player.setEntityTotalHealth(player.getEntityTotalHealthFromClass(classChoice-1));
+		player.setEntityAttack(player.getEntityAttackFromClass(classChoice-1));
+		player.setEntityDefense(player.getEntityDefenseFromClass(classChoice-1));
+		player.setEntityLevel(1);
+		player.setEntityCurrentXp(0);
+		player.setEntityTotalXp(100);
+		int randomGold = new Random().nextInt(10);
+		player.setEntityGold(randomGold);
+		player.setEntityStartingCity(player.getEntityRace());
+		
+		// TODO find a way to save all the player datas in a JSON file even if the EntityPlayer class extends EntityCommon
+		// Saving datas to another class and put it all in a new JSON file
+		player.entityPlayerDatasToSave(player);
 
 		//TODO write on a json file and next push to Rethinkdb database
 
-		out.println("--------------------------------------------------------------------------");
+		out.println("\n--------------------------------------------------------------------------");
 		out.println("|        CONGRATULATION YOUR CHARACTER WAS SUCCESSFULY CREATED           |");
-		out.println("--------------------------------------------------------------------------");
+		out.println("--------------------------------------------------------------------------\n");
 		out.println("Here are your character information:\n"
-				+ "\n\t[Pseudo: " + p.getEntityName()+"]"
+				+ "\n\t[Pseudo: " + player.getEntityName()+"]"
 				//+ "\nRace:" + p.getERace()//p.getERaceName(getERace())
-				+ "\n\t[Race: " + p.getEntityRaceName(p.getEntityRace())+"]"
+				+ "\n\t[Race: " + player.getEntityRaceName(player.getEntityRace())+"]"
 				//+ "\nClass:" + p.getEClass()//p.getEClassName(getEClass())
-				+ "\n\t[Class: " + p.getEntityClassName(p.getEntityClass())+"]"
+				+ "\n\t[Class: " + player.getEntityClassName(player.getEntityClass())+"]"
 				+ "\n\n\tStats:"
-				+ "\n\t[Level: " + p.getEntityLevel()+"]"	
-				+ "\n\t[Xp: " + p.getEntityCurrentXp()+"/" +p.getEntityTotalXp()+"]"
-				+ "\n\t[Attack:" + p.getEntityAttack()+"]"	
-				+ "\n\t[Defense:" + p.getEntityDefense()+"]"
-				+ "\n\t[Health:" + p.getEntityCurrentHealth()+"/" +p.getEntityTotalHealth()+"]"
-				+ "\n\t[Gold:" + p.getEntityGold()+"]\n");
-		
-		out.println(p.getEntityCitySpeech(raceChoice-1));
+				+ "\n\t[Level: " + player.getEntityLevel()+"]"	
+				+ "\n\t[Xp: " + player.getEntityCurrentXp()+"/" +player.getEntityTotalXp()+"]"
+				+ "\n\t[Attack:" + player.getEntityAttack()+"]"	
+				+ "\n\t[Defense:" + player.getEntityDefense()+"]"
+				+ "\n\t[Health:" + player.getEntityCurrentHealth()+"/" +player.getEntityTotalHealth()+"]"
+				+ "\n\t[Gold:" + player.getEntityGold()+"]\n");
+
+		out.println(player.getEntityCitySpeech(raceChoice-1));
 
 		//TODO implements the rest of newgame
 		//Starting cities already implemented to link with actions system
@@ -127,7 +119,7 @@ public class NewGame {
 		//Battle system works with these parameters 
 		//EntityMonster monster = new EntityMonster();
 		//out.println("A "+monster.getEntityName()+" appears on your way");
-		
+
 
 		//pchoice(player,m);
 
