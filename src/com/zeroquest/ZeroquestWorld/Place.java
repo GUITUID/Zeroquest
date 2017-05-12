@@ -1,10 +1,11 @@
 package com.zeroquest.ZeroquestWorld;
 
 public class Place {
-
+	
+	private String placeName;
+	
 	public String getPlaceName() {
-		// TODO Auto-generated method stub
-		return null;
+		return placeName;
 	}
 
 }

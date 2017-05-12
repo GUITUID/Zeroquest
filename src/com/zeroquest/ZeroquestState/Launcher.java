@@ -1,5 +1,9 @@
 package com.zeroquest.ZeroquestState;
 
+import static java.lang.System.out;
+
+import javax.swing.JOptionPane;
+
 import com.zeroquest.ZeroquestMenu.Menu;
 /**
  * Launcher first call the intro (splashscreen) and then call the menu 
@@ -13,6 +17,13 @@ public class Launcher {
 	 */
 	public void start()
 	{
+		// Standard UI design
+		//JOptionPane.showMessageDialog(null,"Welcome to Zeroquest");
+		
+		// Console UI
+		out.println("\n--------------------------------------------------------------------------");
+		out.println("|                      ~~ WELCOME TO ZEROQUEST ~~                        |");
+		out.println("--------------------------------------------------------------------------\n");
 		//Calling Splashscreen
 		State.intro();
 		//Calling Menu
@@ -28,4 +39,5 @@ public class Launcher {
 		Launcher launcher=new Launcher();
 		launcher.start();
 	}
+	
 }

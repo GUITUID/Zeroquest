@@ -23,7 +23,7 @@ import com.zeroquest.ZeroquestHelpers.Constants;
 
 import static java.lang.System.out;
 
-public class EntityCommon {
+public class  EntityCommon {
 
 	//----------------------------------------
 	//|       VARIABLES & CONSTANTS          |
@@ -70,6 +70,20 @@ public class EntityCommon {
 	private static int entityGold;
 	//Entity Starting City
 	private static int entityStartingCity;
+	
+	/**
+	 * Heroquest dice type:<br/> 
+	 * <table>
+	 * <tr>
+	 * <td>Shield</td><td>Shield</td><td>Skull</td><td>Skull</td><td>Ennemy Shield</td><td>Skull</td></tr>
+	 * <tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+	 * </tr>
+	 * </table>
+	 */
+	public static  String [] heroquestDiceType = 
+		{
+				"Shield", "Shield", "Skull", "Skull", "Ennemy Shield", "Skull"
+		};
 
 	//----------------------------------------
 	//|         GET & SET METHODS            |
@@ -319,21 +333,7 @@ public class EntityCommon {
 	//----------------------------------------
 
 	/**
-	 * Heroquest dice type:<br/> 
-	 * <table>
-	 * <tl>
-	 * <td>Shield</td><td>Shield</td><td>Skull</td><td>Skull</td><td>Ennemy Shield</td><td>Skull</td></tl>
-	 * <tl><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
-	 * </tl>
-	 * </table>
-	 */
-	protected String [] heroquestDiceType = 
-		{
-				"Shield", "Shield", "Skull", "Skull", "Ennemy Shield", "Skull"
-		};
-
-	/**
-	 * Method that set the health lost during a battde or an event <br/>
+	 * Method that set the health lost during a battle or an event <br/>
 	 * @param healthLost
 	 */
 	public void entityLoseHealth(int healthLost)

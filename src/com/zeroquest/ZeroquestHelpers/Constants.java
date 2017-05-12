@@ -53,7 +53,9 @@ public class Constants {
 					//, "Thief", "Archer", "Mage", "Priest", "Monk", "Ninja", 
 				},
 				{
-					"An equilibrated class, good for starting","tanking class, good for taking damages","A dps class, good for making damages"
+					"A warrior is most of the time an ex soldier who fled with great glory from a battlefield, sometimes a peasant who think have fighting abilities... ahahah...",
+					"An old warrior who gets hardly struck by a mass and now heard voices in his head, but since he gain healing powers it's ok if he seems a little bit mad...",
+					"barbarians dislike magic, archery as these are for cowards only. They go in battle only wearing a leather pants, which is quite stupid."
 				}
 		};
 	
@@ -126,9 +128,9 @@ public class Constants {
 	 */
 	private static String [] entityCitySpeech =
 		{
-				"\nWelcome to Pellarian: capital city of humans, you’re one of those stupid peasant that destroy nature wherever they goes and also if you’re a paladin a thief or a mage. \nThis city is well known for well… horse poop, smelly fish, thieves, tramps, guards corruption… But they sell good horses, heavy armors and quite good weapons.", 
-				"\nWelcome to Kalhazdan:  capital city of dwarves, this city is well known for it’s beer, dwarven weapons and protections, jewelry and it's population of all those little grumpy bastards with a beard and a axe…", 
-				"\nWelcome to Ellïanär: capital city of elven, you’re one of those salad eater… this city is well known for it’s salad, little ponies, unicorns that poop rainbows and butterflies… \nand also bows a weapon for tards… full of those tall pointy ears salad eaters…"
+				"\nWelcome to Pellarian: capital city of humans, you’re one of those stupid peasant that destroy nature wherever they goes. \nThis city is well known for well… horse poop, smelly fish, thieves, tramps, guards corruption… But they sell good horses, heavy armors and quite good weapons.", 
+				"\nWelcome to Kalhazdan: capital city of dwarves, this city is well known for it’s beer, dwarven weapons and armors, jewelry and it's population of all those little grumpy bastards with a beard (even the female type...) and a axe…", 
+				"\nWelcome to Ellïanär: capital city of elven, you’re one of those salad eater… this city is well known for it’s salad, little ponies, unicorns that poop rainbows and butterflies… \nand also bows, a weapon for tards… full of those tall pointy ears salad eaters…"
 		
 		};
 	
