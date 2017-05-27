@@ -5,6 +5,7 @@ import static java.lang.System.out;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.zeroquest.ZeroquestActions.Actions;
 import com.zeroquest.ZeroquestEntities.EntityPlayer;
 import com.zeroquest.ZeroquestHelpers.Constants;
 
@@ -119,13 +120,13 @@ public class NewGame {
 		//Battle system works with these parameters 
 		//EntityMonster monster = new EntityMonster();
 		//out.println("A "+monster.getEntityName()+" appears on your way");
-
-
 		//pchoice(player,m);
-
 		//Battle.entitiesBattle(p,monster);
 
 		scanner.close();
+		
+		//Calling action
+		Actions.pActions();
 
 	}
 }

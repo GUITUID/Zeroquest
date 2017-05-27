@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import com.google.gson.stream.JsonReader;
+import com.zeroquest.ZeroquestActions.Actions;
 import com.zeroquest.ZeroquestEntities.EntityPlayer;
 
 public class LoadGame {
@@ -137,11 +138,17 @@ public class LoadGame {
 						+ "\n\t[Health:" + player.getEntityCurrentHealth()+"/" +player.getEntityTotalHealth()+"]"
 						+ "\n\t[Gold:" + player.getEntityGold()+"]\n");
 		
-				scanner.close();
+				
 				
 		//TODO load list of maps
 		
 		//TODO 
-		
+				//Calling action
+				Actions.pActions();
+				
+				int actionChoice = scanner.nextInt()+1;
+				
+				Actions.eActions(actionChoice, player, null);
+				scanner.close();
 	}
 }
