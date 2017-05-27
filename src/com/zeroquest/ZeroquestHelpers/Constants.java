@@ -142,7 +142,27 @@ public class Constants {
 		return p.getEntityCitySpeech(p.getEntityCity());
 	}
 	
+	static String [] pactionsTavern =
+		{
+			"Find a quest",	"Fight", "Flee","Take a look around","Eat",	"Drink","Get drunk","Rest",	"Wait"
+		};
 	
+	static String [] pactionsBattle =
+		{
+			"Find a quest",	"Fight", "Flee","Take a look around","Eat",	"Drink","Get drunk","Rest",	"Wait"
+		};
 	
+	public static String [] pactionsCity =
+		{
+			"Find a quest", "Flee","Take a look around","Wait"
+		};
 	
+	static String [] pactionsNature =
+		{
+			"Take a look around","Eat",	"Drink","Get drunk","Rest",	"Wait", "hunt"
+		};	
+	static String [] pactionsMovement =
+		{
+			"Go North",	"Go East", "Go West","Go South"	
+		};
 }

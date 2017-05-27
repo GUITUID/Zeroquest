@@ -4,41 +4,23 @@ import static java.lang.System.out;
 
 import com.zeroquest.ZeroquestEntities.EntityMonster;
 import com.zeroquest.ZeroquestEntities.EntityPlayer;
+import com.zeroquest.ZeroquestHelpers.Constants;
 import com.zeroquest.ZeroquestState.PlayerState;
 //TODO better action system
-public class Actions {
-
-	//Actions a player can do
-    static String [] pactions =
-	{
-		"\nWhat's your plan?"
-		+"1) Find a quest"	
-		+"2) Fight"
-		+"3) Flee"
-		+"4) Take a look"
-		+"5) Eat"
-		+"6) Drink"
-		+"7) Get drunk"
-		+"8) Sleep"    
-	};
-    
-  //Player actions method
-    static int nActions()
-    {
-        return pactions.length;
-    }
-    
+public class Actions {    
 	
 	//Player actions method
-    static void pActions()
+    public static void pActions()
     {
         for(int i=0; i!=nActions(); i++){
-        	 out.println(pactions[i]);
+        	 out.print("\n\t"+i+")\n");
+        	 out.println(Constants.pactionsCity[i]);
+        	 //out.println("\n\t");
         }
     }
     
   //environment actions method depending on the player choice
-    static void eActions(int nAction, EntityPlayer p, EntityMonster m)
+    public static void eActions(int nAction, EntityPlayer p, EntityMonster m)
     {	
     	switch (nAction)
     	{
@@ -56,6 +38,5 @@ public class Actions {
     	//Sleep and recover some health and mana points
     	case 7:PlayerState.sleep(p, null);
     	}
-    }
-	
+    } 
 }
