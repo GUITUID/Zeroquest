@@ -29,7 +29,7 @@
 |Goblin|2|1|1|Friends!|:lock:|
 |Ork|3|2|1||:lock:|
 |Ork chief|4|3|2||:lock:|
-|Skeleton|3|2|1|invuln. armes de jet|:lock:|
+|Skeleton|3|2|1|Invulnerable to throwing weapons|:lock:|
 |Zombie|2|2|1|braaaaain!|:lock:|
 |Troll|4|3|5|Regeneration|:lock:|
 |Necromancer|3|2|4|Fear|:lock:|
