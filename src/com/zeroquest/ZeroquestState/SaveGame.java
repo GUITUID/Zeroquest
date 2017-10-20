@@ -34,7 +34,7 @@ public class SaveGame{
 		if(datasToSaveType.equals("character")){
 			//saving newly created character in a json format
 			try {
-				File file = new File ("C:/Users/Zadwarf.ZADWARF-PC/git/Zeroquest/datas/characters/"+filename+".json");
+				File file = new File ("../Zeroquest/datas/characters/"+filename+".json");
 				BufferedWriter out = new BufferedWriter(new FileWriter(file)); 
 				out.write(playerDatasToSave);
 				out.close();

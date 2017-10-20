@@ -28,7 +28,7 @@ public class Profile {
     }
 
     public static void write(String values ) {
-    	FileHandle file = Gdx.files.internal("D:/Perso/Developpement/Java/Workspaces/Zeroquest/Project/Hero_Quest/datas/player.json");
+    	FileHandle file = Gdx.files.internal("../Zeroquest/Project/Hero_Quest/datas/player.json");
     	System.out.println(values);
     	file.writeString(values, true);
     }
