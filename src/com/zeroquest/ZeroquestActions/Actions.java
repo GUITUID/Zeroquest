@@ -12,10 +12,9 @@ public class Actions {
 	//Player actions method
     public static void pActions()
     {
-        for(int i=0; i!=pActions(); i++){
-        	 out.print("\n\t"+i+")\n");
+        for(int i=0; i!=Constants.pactionsCity.length; i++){
+        	 out.print(""+i+")");
         	 out.println(Constants.pactionsCity[i]);
-        	 //out.println("\n\t");
         }
     }
     
