@@ -13,14 +13,11 @@ public class Actions {
     public static void pActions()
     {
         for(int i=0; i!=Constants.pactionsCity.length; i++){
-<<<<<<< HEAD
-        	 out.print(""+i+")");
-        	 out.println(Constants.pactionsCity[i]);
-=======
+
         	 out.print("\n\t"+i+")\n");
         	 out.println(Constants.pactionsCity[i]);
         	 //out.println("\n\t");
->>>>>>> branch 'develop' of https://github.com/MonsieurZad/Zeroquest.git
+
         }
     }
     

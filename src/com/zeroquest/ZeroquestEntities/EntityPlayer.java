@@ -8,11 +8,7 @@ import java.util.Random;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter.OutputType;
-<<<<<<< HEAD
-=======
-//import com.badlogic.gdx.utils.Json;
-//import com.badlogic.gdx.utils.JsonWriter.OutputType;
->>>>>>> branch 'develop' of https://github.com/MonsieurZad/Zeroquest.git
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
