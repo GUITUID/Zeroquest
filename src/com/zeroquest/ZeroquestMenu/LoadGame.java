@@ -8,7 +8,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-import com.google.gson.stream.JsonReader;
 import com.zeroquest.ZeroquestActions.Actions;
 import com.zeroquest.ZeroquestEntities.EntityPlayer;
 
