@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+import com.google.gson.stream.JsonReader;
 import com.zeroquest.ZeroquestActions.Actions;
 import com.zeroquest.ZeroquestEntities.EntityPlayer;
 
@@ -121,7 +122,7 @@ public class LoadGame {
 		    	     }
 		     
 		     	out.println("\n--------------------------------------------------------------------------");
-				out.println("|        CONGRATULATION YOUR CHARACTER WAS SUCCESSFULY LOADED           |");
+				out.println("|                 YOUR CHARACTER WAS SUCCESSFULY LOADED                  |");
 				out.println("--------------------------------------------------------------------------\n");
 				out.println("Here are your character information:\n"
 						+ "\n\t[Pseudo: " + player.getEntityName()+"]"
@@ -143,11 +144,16 @@ public class LoadGame {
 		
 		//TODO 
 				//Calling action
-				Actions.pActions();
+				Actions.pShowActionsCity();
 				
-				int actionChoice = scanner.nextInt()+1;
+				int actionChoice = scanner.nextInt();
 				
-				Actions.eActions(actionChoice, player, null);
+				Actions.pActionsCity(actionChoice, player);
+				player.getEntityState();
+				player.entityPlayerDatasToSave(player);
+				
+				
+				//Actions.eActions(actionChoice, player, null);
 				scanner.close();
 	}
 }

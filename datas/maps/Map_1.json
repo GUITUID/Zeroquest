@@ -1,5 +1,6 @@
 {
-	"map" : [{
+	"map" : {
+		{
 			"name" : "Name",
 			"value" : "Map_1"
 		}, {
@@ -14,6 +15,7 @@
 		}, {
 			"name" : "level",
 			"value" : "1"
+		}
 		},
 "rooms" : [{
 		{
@@ -31,6 +33,7 @@
 		}, {
 			"name" : "y_pos",
 			"value" : "10"
+		}
 		}
 	]
 }

@@ -26,7 +26,7 @@
 "Name":"Enchanted fire sword",
 "Damage":2,
 "Range":1,
-"Effects":1,
+"Effects":"",
 },
 {
 "Name":"Explosive fireball",

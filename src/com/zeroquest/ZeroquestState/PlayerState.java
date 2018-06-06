@@ -8,10 +8,12 @@ import com.zeroquest.ZeroquestWorld.Place;
 
 public class PlayerState {
 
-	
-
 	public static void flee(EntityPlayer player) {
 		player.setEntityState("flee.");
+	}
+	
+	public static void wait(EntityPlayer player) {
+		player.setEntityState("Waits.");
 	}
 
 	public static void eat(EntityPlayer player, EntityObject object) {

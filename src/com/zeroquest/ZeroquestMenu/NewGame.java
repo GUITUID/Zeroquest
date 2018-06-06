@@ -123,10 +123,14 @@ public class NewGame {
 		//pchoice(player,m);
 		//Battle.entitiesBattle(p,monster);
 
-		scanner.close();
+		
 		
 		//Calling action
-		Actions.pActions();
+		//Calling action
+		Actions.pShowActionsCity();
+		
+		int actionChoice = scanner.nextInt();
 
+		scanner.close();
 	}
 }

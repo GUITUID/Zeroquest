@@ -1,11 +1,1 @@
-{
-"playerDataToSaveName": "Zadwarf",
-"playerDataToSaveRace": 1,
-"playerDataToSaveLevel": 1,
-"playerDataToSaveTotalXp": 100,
-"playerDataToSaveAttack": 3,
-"playerDataToSaveDefense": 3,
-"playerDataToSaveCurrentHealth": 10,
-"playerDataToSaveTotalHealth": 10,
-"playerDataToSaveGold": 2
-}
+{"playerDataToSaveName":"Zadwarf","playerDataToSaveRace":1,"playerDataToSaveClass":0,"playerDataToSaveLevel":1,"playerDataToSaveCurrentXp":0,"playerDataToSaveTotalXp":100,"playerDataToSaveCity":0,"playerDataToSaveXPosition":0,"playerDataToSaveYPosition":0,"playerDataToSaveAttack":3,"playerDataToSaveDefense":3,"playerDataToSaveAlcoholLevel":0,"playerDataToSaveAlcoholResistance":0,"playerDataToSaveCurrentHealth":10,"playerDataToSaveTotalHealth":10,"playerDataToSaveGold":5,"playerDataToSaveStartingCity":0}
